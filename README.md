@@ -1,2 +1,2 @@
 # cardgame
-This is a simple card game build with react using babel & webpack
+This is a simple card game built with react using babel & webpack
