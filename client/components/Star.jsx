@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './Star.css';
+import '../../fontawesome/web-fonts-with-css/css/fontawesome.min.css';
 
 class Star extends React.Component {
   render() {
@@ -8,11 +9,13 @@ class Star extends React.Component {
 
     return (
       <div className="Star">
-       This is Star component!
-    
-      </div>
+        <i class="fa fa-star"></i> 
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+     </div>
     );
-  }
+ }
 }
 
 export default Star;
