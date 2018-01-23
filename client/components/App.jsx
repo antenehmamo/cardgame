@@ -3,11 +3,10 @@ import React, {PropTypes} from 'react';
 import './App.css';
 import './Star.jsx';
 import './Answer.jsx';
-import './Numbercomponent';
+import './Numbercomponent.jsx';
 import Star from './Star.jsx';
 import Answer from './Answer.jsx';
-import Numbercomponent from './Numbercomponent';
-
+import Numbercomponent from './Numbercomponent.jsx';
 
 
 export default class App extends React.Component {
