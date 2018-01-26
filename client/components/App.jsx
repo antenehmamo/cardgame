@@ -10,11 +10,21 @@ import Numbercomponent from './Numbercomponent.jsx';
 
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      numberOfStars : Math.floor(Math.random() * 9 + 1)
+    }
+  }
+
+
+
+
   render() {
     return (
      <div className="Cardcontainer">
      <h1 className="header">fun card game</h1>
-       <Star/>
+       <Star numberOfStars= {this.state.numberOfStars}/>
        <Answer/>
        <Numbercomponent/>
      </div>

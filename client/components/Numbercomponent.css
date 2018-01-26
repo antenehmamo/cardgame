@@ -11,11 +11,13 @@ span {
  }
 
  .NumberList {
-     display: block;
-     border: 10px;
-     background-color:lightgray;
-     width:700px;
-     margin-left:350px;
+    display: inline-block;
+    color:brown;
+    text-align: center;
+    margin: 24px;
+    border-radius: 20px;
+    background-color: orange;
+    padding:40px;
 
 
 
