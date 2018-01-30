@@ -12,13 +12,30 @@ span {
 
  .NumberList {
     display: inline-block;
-    color:brown;
+    color:red;
     text-align: center;
     margin: 24px;
     border-radius: 20px;
     background-color: orange;
-    padding:40px;
+    padding:40px ;
+}
+
+.selected {
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: lightcoral;
+}
 
 
 
- }
+
+
+
+
+
+
+
+
+
+
+

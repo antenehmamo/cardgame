@@ -5,6 +5,16 @@ import '../../fontawesome/web-fonts-with-css/css/fontawesome.min.css';
 
 
 class Numbercomponent extends React.Component {
+constructor(props){
+  super(props);
+  this.setClassName = this.setClassName.bind(this);
+}
+  setClassName(number) {
+    if(this.props.selectedNumbers.indexOf(number) >= 0){
+      return 'selected';
+    }
+  };
+
   render() {
    let start = 1;
    let end = 9;
@@ -15,7 +25,7 @@ class Numbercomponent extends React.Component {
     return (
       <div className="NumberList">
         {
-        numberList.map((number,i) => <button key={i} onClick = {() => this.props.handleSelectedNumbers(number)}>{number}</button>)
+        numberList.map((number,i) => <button key={i} className={this.setClassName(number)} onClick = {() => this.props.handleSelectedNumbers(number)}>{number}</button>)
         }
         </div>
     )

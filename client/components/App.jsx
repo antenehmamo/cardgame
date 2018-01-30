@@ -26,13 +26,13 @@ export default class App extends React.Component {
   };
 
   render() {
-    console.log('hi');
+    
     return (
      <div className="Cardcontainer">
      <h1 className="header">fun card game</h1>
        <Star/>
        <Answer selectedNumbers={this.state.selectedNumbers}/>
-       <Numbercomponent handleSelectedNumbers={handleSelectedNumbers(number)}/>
+       <Numbercomponent selectedNumbers={this.state.selectedNumbers} handleSelectedNumbers={this.handleSelectedNumbers}></Numbercomponent>
      </div>
      );
   }
