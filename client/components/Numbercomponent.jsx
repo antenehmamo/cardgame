@@ -6,18 +6,17 @@ import '../../fontawesome/web-fonts-with-css/css/fontawesome.min.css';
 
 class Numbercomponent extends React.Component {
   render() {
- 
+   let start = 1;
+   let end = 9;
+   var numberList = [];
+   while(start <= end){
+     numberList.push(start++);
+   } ;
     return (
       <div className="NumberList">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
+        {
+        numberList.map((number,i) => <button key={i} onClick = {() => this.props.handleSelectedNumbers(number)}>{number}</button>)
+        }
         </div>
     )
   }

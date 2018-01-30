@@ -12,21 +12,27 @@ import Numbercomponent from './Numbercomponent.jsx';
 export default class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      numberOfStars : Math.floor(Math.random() * 9 + 1)
-    }
+    this.state ={
+      selectedNumbers : [ ],
+    };
+
+    this.handleSelectedNumbers = this.handleSelectedNumbers.bind(this);
+  
   }
 
-
-
+  handleSelectedNumbers(number){
+    this.setState(prevState =>
+       ({selectedNumbers : prevState.selectedNumbers.concat(number)}))
+  };
 
   render() {
+    console.log('hi');
     return (
      <div className="Cardcontainer">
      <h1 className="header">fun card game</h1>
-       <Star numberOfStars= {this.state.numberOfStars}/>
-       <Answer/>
-       <Numbercomponent/>
+       <Star/>
+       <Answer selectedNumbers={this.state.selectedNumbers}/>
+       <Numbercomponent handleSelectedNumbers={handleSelectedNumbers(number)}/>
      </div>
      );
   }
