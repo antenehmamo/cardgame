@@ -12,9 +12,24 @@
 .fa-angle-double-right {
   padding:10px;
 }
+
+.fa-check {
+  padding:10px;
+  background-color: green;
+}
+.fa-times{
+  padding:10px;
+  background-color: red;
+}
 .redrawbutton {
   background-color: lightgrey;
   margin:45px;
   padding:10px;
 
+}
+.equals {
+  width:10px;
+  background-color: lightgrey;
+  margin:5px;
+  padding:10px;
 }

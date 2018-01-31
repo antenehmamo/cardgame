@@ -5,16 +5,16 @@ import '../../fontawesome/web-fonts-with-css/css/fontawesome.min.css';
 
 class Star extends React.Component {
   render() {
+    const { numberOfStars } = this.props;
     let stars = [];
-    const randGen = Math.floor(Math.random() * 9 + 1);
-    for(let i=0; i < randGen; i ++){
+    for(let i=0; i < numberOfStars; i ++){
       stars.push(<i key={i} class="fa fa-star"></i>);
     }
 
     return (
       <div className="Star">
        {stars}
-       {this.props.numberOfStars}
+       {numberOfStars}
      </div>
     );
  }
