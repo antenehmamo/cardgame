@@ -10,6 +10,9 @@ constructor(props){
   this.setClassName = this.setClassName.bind(this);
 }
   setClassName(number) {
+    if(this.props.usedNumbers.indexOf(number) >= 0){
+      return 'used';
+    }
     if(this.props.selectedNumbers.indexOf(number) >= 0){
       return 'selected';
     }

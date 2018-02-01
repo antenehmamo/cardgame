@@ -14,15 +14,18 @@ export default class App extends React.Component {
     super(props);
     this.state ={
       selectedNumbers : [ ],
+      usedNumbers : [ ],
       answerIsCorrect: null,
       isRedrawClicked: false,
       numberOfStars : Math.floor(Math.random() * 9 + 1),
+      redrawCount : 5
     };
 
     this.handleSelectedNumbers = this.handleSelectedNumbers.bind(this);
     this.handleUnselectedNumbers = this.handleUnselectedNumbers.bind(this);
     this.checkAnswer = this.checkAnswer.bind(this);
     this.redrawCard = this.redrawCard.bind(this);
+    this.acceptAnswer = this.acceptAnswer.bind(this);
   
   }
 
@@ -44,16 +47,29 @@ export default class App extends React.Component {
     }));
   }
 
+  acceptAnswer () {
+     this.setState(prevState => ({
+        answerIsCorrect: null,
+        usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
+        selectedNumbers: [],
+        numberOfStars: Math.floor(Math.random() * 9 + 1)
+     }));
+  };
+
   redrawCard () {
     this.setState(prevState => ({
+          redrawCount     : prevState.redrawCount - 1,
           answerIsCorrect : null,
-          isRedrawClicked : !prevState.isRedrawClicked,
+          isRedrawClicked : true,
           numberOfStars : Math.floor(Math.random() * 9 + 1)
     }))
   };
 
+
+
   render() {
-    const { selectedNumbers, numberOfStars, answerIsCorrect, isRedrawClicked} = this.state;
+    const { selectedNumbers, numberOfStars, answerIsCorrect, isRedrawClicked,
+            redrawCount, usedNumbers} = this.state;
   
     return (
      <div className="Cardcontainer">
@@ -65,8 +81,12 @@ export default class App extends React.Component {
                answerIsCorrect={answerIsCorrect}
                handleUnselectedNumbers = {this.handleUnselectedNumbers}
                redrawCard = {this.redrawCard}
-               isRedrawClicked = {isRedrawClicked}/>
-       <Numbercomponent selectedNumbers={this.state.selectedNumbers} handleSelectedNumbers={this.handleSelectedNumbers}></Numbercomponent>
+               isRedrawClicked = {isRedrawClicked}
+               redrawCount = {redrawCount}
+               acceptAnswer = {this.acceptAnswer}/>
+       <Numbercomponent selectedNumbers={selectedNumbers}
+              handleSelectedNumbers={this.handleSelectedNumbers}
+              usedNumbers={usedNumbers}></Numbercomponent>
      </div>
      );
   }

@@ -27,6 +27,11 @@ span {
 }
 
 
+.used {
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: red;
+}
 
 
 
