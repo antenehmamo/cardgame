@@ -64,7 +64,8 @@ export default class App extends React.Component {
                checkAnswer={this.checkAnswer} 
                answerIsCorrect={answerIsCorrect}
                handleUnselectedNumbers = {this.handleUnselectedNumbers}
-               redrawCard = {this.redrawCard}/>
+               redrawCard = {this.redrawCard}
+               isRedrawClicked = {isRedrawClicked}/>
        <Numbercomponent selectedNumbers={this.state.selectedNumbers} handleSelectedNumbers={this.handleSelectedNumbers}></Numbercomponent>
      </div>
      );

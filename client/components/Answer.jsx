@@ -10,7 +10,10 @@ class Answer extends React.Component {
   
 
   render() {
-    const { selectedNumbers, numberOfStars, answerIsCorrect} = this.props;
+    const { selectedNumbers, numberOfStars, answerIsCorrect, isRedrawClicked} = this.props;
+
+    let currentlySelected = [];
+    ( isRedrawClicked === true ) ? currentlySelected=[]: currentlySelected=selectedNumbers;
    
     let button;
     switch(this.props.answerIsCorrect){
@@ -31,6 +34,7 @@ class Answer extends React.Component {
            <button class="answerbutton" onClick={this.props.checkAnswer} disabled={this.props.selectedNumbers.length === 0}>
                 <span className="equals">=</span>
            </button>;
+           
            break;
     };
     return (
@@ -40,8 +44,9 @@ class Answer extends React.Component {
        {console.log('ans',answerIsCorrect)}
       {button}
        
-      {
-        selectedNumbers.map((number,i) => 
+      { 
+       
+       currentlySelected.map((number,i) => 
         <button key={i} className="selectedAnswers" onClick={() => this.props.handleUnselectedNumbers(number)}>
             {number}
         </button>)
