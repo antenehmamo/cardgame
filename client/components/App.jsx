@@ -14,18 +14,28 @@ export default class App extends React.Component {
     super(props);
     this.state ={
       selectedNumbers : [ ],
+      answerIsCorrect: null,
+      isRedrawClicked: false,
       numberOfStars : Math.floor(Math.random() * 9 + 1),
-      answerIsCorrect: null
     };
 
     this.handleSelectedNumbers = this.handleSelectedNumbers.bind(this);
+    this.handleUnselectedNumbers = this.handleUnselectedNumbers.bind(this);
     this.checkAnswer = this.checkAnswer.bind(this);
+    this.redrawCard = this.redrawCard.bind(this);
   
   }
 
   handleSelectedNumbers(number){
     this.setState(prevState =>
-       ({selectedNumbers : prevState.selectedNumbers.concat(number)}))
+       ({answerIsCorrect : null,
+        selectedNumbers : prevState.selectedNumbers.concat(number)}))
+  };
+
+  handleUnselectedNumbers(unselectedNumber){
+    this.setState(prevState =>
+       ({answerIsCorrect : null,
+        selectedNumbers : prevState.selectedNumbers.filter(number => number !== unselectedNumber)}))
   };
 
   checkAnswer ( ) {
@@ -34,15 +44,27 @@ export default class App extends React.Component {
     }));
   }
 
+  redrawCard () {
+    this.setState(prevState => ({
+          answerIsCorrect : null,
+          isRedrawClicked : !prevState.isRedrawClicked,
+          numberOfStars : Math.floor(Math.random() * 9 + 1)
+    }))
+  };
+
   render() {
-    const { selectedNumbers, numberOfStars, answerIsCorrect } = this.state;
+    const { selectedNumbers, numberOfStars, answerIsCorrect, isRedrawClicked} = this.state;
   
     return (
      <div className="Cardcontainer">
      <h1 className="header">fun card game</h1>
        <Star numberOfStars={this.state.numberOfStars}/>
-       <Answer selectedNumbers={this.state.selectedNumbers} numberOfStars={this.state.numberOfStars} 
-       checkAnswer={this.checkAnswer} answerIsCorrect={answerIsCorrect}/>
+       <Answer selectedNumbers={this.state.selectedNumbers} 
+               numberOfStars={this.state.numberOfStars} 
+               checkAnswer={this.checkAnswer} 
+               answerIsCorrect={answerIsCorrect}
+               handleUnselectedNumbers = {this.handleUnselectedNumbers}
+               redrawCard = {this.redrawCard}/>
        <Numbercomponent selectedNumbers={this.state.selectedNumbers} handleSelectedNumbers={this.handleSelectedNumbers}></Numbercomponent>
      </div>
      );

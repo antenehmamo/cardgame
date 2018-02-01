@@ -28,7 +28,7 @@ class Answer extends React.Component {
            break;
         default:
            button =
-           <button class="answerbutton" onClick={this.props.checkAnswer}>
+           <button class="answerbutton" onClick={this.props.checkAnswer} disabled={this.props.selectedNumbers.length === 0}>
                 <span className="equals">=</span>
            </button>;
            break;
@@ -41,11 +41,14 @@ class Answer extends React.Component {
       {button}
        
       {
-        selectedNumbers.map((number,i) => <span key={i}>{number}</span>)
+        selectedNumbers.map((number,i) => 
+        <button key={i} className="selectedAnswers" onClick={() => this.props.handleUnselectedNumbers(number)}>
+            {number}
+        </button>)
       }
        
         <div>
-        <button class="redrawbutton">
+        <button class="redrawbutton" onClick={this.props.redrawCard}>
           REDRAW 
          {this.props.redrawCount}
         </button>
