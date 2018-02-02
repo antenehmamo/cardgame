@@ -5,7 +5,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
-//const FontAwesome = require('react-fontawesome');
+const _ = require('lodash');
+process.env.WEBPACK_VERSION = require('webpack/package.json').version;
 
 module.exports = {
   entry: './client/index.js',
@@ -18,6 +19,14 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.(png|jpg|ttf|eot)$/, loader: 'url-loader?limit=10000', exclude: /node_modules/ },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015','react'],
+        }
+      },
       {
         test: /\.css$/,
         use: [

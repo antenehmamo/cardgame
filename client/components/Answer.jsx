@@ -54,7 +54,7 @@ class Answer extends React.Component {
         <div>
         <button class="redrawbutton" 
               onClick={this.props.redrawCard}
-              disabled={this.props.selectedNumbers.length === 0}>
+              disabled={this.props.redrawCount === 0}>
           REDRAW  >>
          {redrawCount}
         </button>

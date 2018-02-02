@@ -7,9 +7,12 @@ import './Numbercomponent.jsx';
 import Star from './Star.jsx';
 import Answer from './Answer.jsx';
 import Numbercomponent from './Numbercomponent.jsx';
+import _ from 'lodash';
+import DoneFrame from './DoneFrame.jsx';
 
 
 export default class App extends React.Component {
+
   constructor(props){
     super(props);
     this.state ={
@@ -18,7 +21,8 @@ export default class App extends React.Component {
       answerIsCorrect: null,
       isRedrawClicked: false,
       numberOfStars : Math.floor(Math.random() * 9 + 1),
-      redrawCount : 5
+      redrawCount : 5,
+      doneStatus : null
     };
 
     this.handleSelectedNumbers = this.handleSelectedNumbers.bind(this);
@@ -26,9 +30,12 @@ export default class App extends React.Component {
     this.checkAnswer = this.checkAnswer.bind(this);
     this.redrawCard = this.redrawCard.bind(this);
     this.acceptAnswer = this.acceptAnswer.bind(this);
+    //this.updateDoneStatus = this.updateDoneStatus.bind(this);
+    //this.possibleSolution
+    this.possibleCombinationSum = this.possibleCombinationSum.bind(this);
   
   }
-
+  
   handleSelectedNumbers(number){
     this.setState(prevState =>
        ({answerIsCorrect : null,
@@ -52,24 +59,72 @@ export default class App extends React.Component {
         answerIsCorrect: null,
         usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
         selectedNumbers: [],
-        numberOfStars: Math.floor(Math.random() * 9 + 1)
-     }));
+        numberOfStars:Math.floor(Math.random() * 9 + 1)
+     }), this.updateDoneStatus);
   };
 
   redrawCard () {
+    if(this.state.redrawCount === 0){
+       return;
+    }  
     this.setState(prevState => ({
           redrawCount     : prevState.redrawCount - 1,
           answerIsCorrect : null,
           isRedrawClicked : true,
-          numberOfStars : Math.floor(Math.random() * 9 + 1)
-    }))
+          numberOfStars : Math.floor(Math.random() * 9 + 1),
+          selectedNumbers : []
+    }), this.updateDoneStatus);
+  };
+  
+possibleCombinationSum (arr, n) {
+  if(arr.length === 0){
+    return false;
+  }
+//  if(arr.indexOf(n) >= 0){
+//    return true;
+//  }
+ if(arr[0] > n){
+   return false;
+ }
+ if(arr[arr.length -1] > n){
+   arr.pop();
+   return possibleCombinationSum(arr,n);
+ }
+
+ var listSize = arr.length, combinationsCount = (1 << listSize);
+ for(var i = 1; i< combinationsCount ; i++){
+   var combinationsSum = 0;
+     for(var j=0; j < listSize ; j++) {
+        if(i & (1 << j)) { combinationsSum += arr[j];}
+     }
+     if( n == combinationsSum) { return true;}
+ }
+ return false;
   };
 
 
+possibleSolutions (prevState){
+      const possibleNumbers = _.range(1,10).filter(number => prevState.usedNumbers.indexOf(number));
+      return possibleCombinationSum(possibleNumbers,prevState.numberOfStars);
+}
+
+updateDoneStatus (){
+
+  this.setState(prevState => {
+    if(prevState.usedNumbers.length === 0){
+      return { doneStatus : 'Congratulations, you WON !'};
+    }
+    if(prevState.redrawCount === 0 && !this.possibleSolutions(prevState)){
+      return { doneStatus : 'Game Over'}
+    }
+     
+  });
+
+};
 
   render() {
     const { selectedNumbers, numberOfStars, answerIsCorrect, isRedrawClicked,
-            redrawCount, usedNumbers} = this.state;
+            redrawCount, usedNumbers, doneStatus} = this.state;
   
     return (
      <div className="Cardcontainer">
@@ -84,9 +139,16 @@ export default class App extends React.Component {
                isRedrawClicked = {isRedrawClicked}
                redrawCount = {redrawCount}
                acceptAnswer = {this.acceptAnswer}/>
-       <Numbercomponent selectedNumbers={selectedNumbers}
+      { doneStatus ?
+       <DoneFrame doneStatus = {doneStatus}/>
+       :
+       <Numbercomponent 
+              selectedNumbers={selectedNumbers}
               handleSelectedNumbers={this.handleSelectedNumbers}
-              usedNumbers={usedNumbers}></Numbercomponent>
+              usedNumbers={usedNumbers}>
+      </Numbercomponent>
+     
+      }
      </div>
      );
   }
