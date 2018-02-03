@@ -10,7 +10,8 @@ class Answer extends React.Component {
   
 
   render() {
-    const { selectedNumbers, numberOfStars, answerIsCorrect, isRedrawClicked, redrawCount} = this.props;
+    const { selectedNumbers, numberOfStars,
+        answerIsCorrect, isRedrawClicked, redrawCount} = this.props;
 
     let button;
     switch(this.props.answerIsCorrect){
@@ -54,7 +55,7 @@ class Answer extends React.Component {
         <div>
         <button class="redrawbutton" 
               onClick={this.props.redrawCard}
-              disabled={this.props.redrawCount === 0}>
+              disabled={ redrawCount=== 0 }>
           REDRAW  >>
          {redrawCount}
         </button>

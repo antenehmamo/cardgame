@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d09f0f3-8810-4126-9145-daa1cd842d00" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/client/components/Answer.jsx" afterPath="$PROJECT_DIR$/client/components/Answer.jsx" />
       <change beforePath="$PROJECT_DIR$/client/components/App.jsx" afterPath="$PROJECT_DIR$/client/components/App.jsx" />
       <change beforePath="$PROJECT_DIR$/client/components/DoneFrame.jsx" afterPath="$PROJECT_DIR$/client/components/DoneFrame.jsx" />
     </list>
@@ -23,8 +23,8 @@
           <file leaf-file-name="Answer.jsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/components/Answer.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="426">
-                  <caret line="52" column="7" lean-forward="false" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+                <state relative-caret-position="188">
+                  <caret line="48" column="43" lean-forward="false" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -32,11 +32,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DoneFrame.jsx" pinned="false" current-in-tab="true">
+          <file leaf-file-name="DoneFrame.jsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/components/DoneFrame.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+                <state relative-caret-position="180">
+                  <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -44,11 +44,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="App.jsx" pinned="false" current-in-tab="false">
+          <file leaf-file-name="App.jsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/components/App.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="143" column="22" lean-forward="true" selection-start-line="143" selection-start-column="18" selection-end-line="143" selection-end-column="28" />
+                <state relative-caret-position="356">
+                  <caret line="159" column="20" lean-forward="true" selection-start-line="159" selection-start-column="20" selection-end-line="159" selection-end-column="20" />
                   <folding>
                     <element signature="e#1#40#0" expanded="true" />
                   </folding>
@@ -105,8 +105,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/client/components/Star.jsx" />
-        <option value="$PROJECT_DIR$/client/components/App.jsx" />
         <option value="$PROJECT_DIR$/client/components/DoneFrame.jsx" />
+        <option value="$PROJECT_DIR$/client/components/Answer.jsx" />
+        <option value="$PROJECT_DIR$/client/components/App.jsx" />
       </list>
     </option>
   </component>
@@ -202,12 +203,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517287646154</updated>
-      <workItem from="1517287648256" duration="3419000" />
+      <workItem from="1517287648256" duration="4653000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3419000" />
+    <option name="totallyTimeSpent" value="4653000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -309,10 +310,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/DoneFrame.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/components/Answer.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="52" column="7" lean-forward="false" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+        <state relative-caret-position="188">
+          <caret line="48" column="43" lean-forward="false" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -321,20 +332,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/components/App.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="143" column="22" lean-forward="true" selection-start-line="143" selection-start-column="18" selection-end-line="143" selection-end-column="28" />
+        <state relative-caret-position="356">
+          <caret line="159" column="20" lean-forward="true" selection-start-line="159" selection-start-column="20" selection-end-line="159" selection-end-column="20" />
           <folding>
             <element signature="e#1#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/DoneFrame.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

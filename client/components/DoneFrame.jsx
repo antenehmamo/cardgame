@@ -11,7 +11,7 @@ class DoneFrame extends React.Component {
 
   render() {
    
-    const { doneStatus }  = this.props;
+    const { doneStatus}  = this.props;
     return (
       <div className="doneFrame">
        <h2>{doneStatus}</h2>

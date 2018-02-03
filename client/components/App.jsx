@@ -9,6 +9,7 @@ import Answer from './Answer.jsx';
 import Numbercomponent from './Numbercomponent.jsx';
 import _ from 'lodash';
 import DoneFrame from './DoneFrame.jsx';
+import {reset} from "../../fontawesome/advanced-options/use-with-node-js/fontawesome";
 
 
 export default class App extends React.Component {
@@ -33,6 +34,7 @@ export default class App extends React.Component {
     this.updateDoneStatus = this.updateDoneStatus.bind(this);
     this.possibleSolutions = this.possibleSolutions.bind(this);
     this.possibleCombinationSum = this.possibleCombinationSum.bind(this);
+    this.resetGame = this.resetGame.bind(this);
   
   }
   
@@ -122,6 +124,21 @@ updateDoneStatus (){
   });
 
 };
+
+    resetGame(){
+
+        this.setState(() => ({
+                selectedNumbers: [],
+                usedNumbers: [],
+                answerIsCorrect: null,
+                isRedrawClicked: false,
+                numberOfStars: Math.floor(Math.random() * 9 + 1),
+                redrawCount: 5,
+                doneStatus: null
+            })
+        );
+
+    };
 
   render() {
     const { selectedNumbers, numberOfStars, answerIsCorrect, isRedrawClicked,
