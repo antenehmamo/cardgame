@@ -5,9 +5,8 @@ import '../../fontawesome/web-fonts-with-css/css/fontawesome.min.css';
 
 
 class DoneFrame extends React.Component {
-constructor(props){
-  super(props);
-  this.setClassName = this.setClassName.bind(this);
+    constructor(props){
+      super(props);
 }
 
   render() {

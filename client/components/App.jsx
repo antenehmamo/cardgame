@@ -30,8 +30,8 @@ export default class App extends React.Component {
     this.checkAnswer = this.checkAnswer.bind(this);
     this.redrawCard = this.redrawCard.bind(this);
     this.acceptAnswer = this.acceptAnswer.bind(this);
-    //this.updateDoneStatus = this.updateDoneStatus.bind(this);
-    //this.possibleSolution
+    this.updateDoneStatus = this.updateDoneStatus.bind(this);
+    this.possibleSolutions = this.possibleSolutions.bind(this);
     this.possibleCombinationSum = this.possibleCombinationSum.bind(this);
   
   }
@@ -80,15 +80,15 @@ possibleCombinationSum (arr, n) {
   if(arr.length === 0){
     return false;
   }
-//  if(arr.indexOf(n) >= 0){
-//    return true;
-//  }
+  if(arr.indexOf(n) >= 0){
+    return true;
+  }
  if(arr[0] > n){
    return false;
  }
  if(arr[arr.length -1] > n){
    arr.pop();
-   return possibleCombinationSum(arr,n);
+   return this.possibleCombinationSum(arr,n);
  }
 
  var listSize = arr.length, combinationsCount = (1 << listSize);
@@ -104,14 +104,15 @@ possibleCombinationSum (arr, n) {
 
 
 possibleSolutions (prevState){
-      const possibleNumbers = _.range(1,10).filter(number => prevState.usedNumbers.indexOf(number));
-      return possibleCombinationSum(possibleNumbers,prevState.numberOfStars);
+      const possibleNumbers = _.range(1,10).filter(number => prevState.usedNumbers.indexOf(number) === -1);
+      console.log('possibleNumbers',possibleNumbers);
+      return this.possibleCombinationSum(possibleNumbers,prevState.numberOfStars);
 }
 
 updateDoneStatus (){
 
   this.setState(prevState => {
-    if(prevState.usedNumbers.length === 0){
+    if(prevState.usedNumbers.length === 9){
       return { doneStatus : 'Congratulations, you WON !'};
     }
     if(prevState.redrawCount === 0 && !this.possibleSolutions(prevState)){
@@ -129,7 +130,7 @@ updateDoneStatus (){
     return (
      <div className="Cardcontainer">
      <h1 className="header">fun card game</h1>
-       <Star numberOfStars={this.state.numberOfStars}/>
+       <Star numberOfStars={numberOfStars}/>
        <Answer selectedNumbers={this.state.selectedNumbers} 
                numberOfStars={this.state.numberOfStars} 
                checkAnswer={this.checkAnswer} 
