@@ -34,7 +34,7 @@ export default class App extends React.Component {
     this.updateDoneStatus = this.updateDoneStatus.bind(this);
     this.possibleSolutions = this.possibleSolutions.bind(this);
     this.possibleCombinationSum = this.possibleCombinationSum.bind(this);
-    this.resetGame = this.resetGame.bind(this);
+    this.playAgain = this.playAgain.bind(this);
   
   }
   
@@ -125,7 +125,7 @@ updateDoneStatus (){
 
 };
 
-    resetGame(){
+    playAgain(){
 
         this.setState(() => ({
                 selectedNumbers: [],
@@ -158,7 +158,7 @@ updateDoneStatus (){
                redrawCount = {redrawCount}
                acceptAnswer = {this.acceptAnswer}/>
       { doneStatus ?
-       <DoneFrame doneStatus = {doneStatus}/>
+       <DoneFrame doneStatus = {doneStatus} playAgain={this.playAgain}/>
        :
        <Numbercomponent 
               selectedNumbers={selectedNumbers}

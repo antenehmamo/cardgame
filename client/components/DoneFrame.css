@@ -1,0 +1,12 @@
+.playAgain {
+
+    background-color: black;
+    width:40px;
+    border-radius:5px;
+    padding:10px;
+    color:white;
+    text-align: center;
+    height:30px;
+    border-bottom: #ff253a dot-dash medium;
+
+}

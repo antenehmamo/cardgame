@@ -14,7 +14,7 @@ class Star extends React.Component {
     return (
       <div className="Star">
        {stars}
-       {numberOfStars}
+          <span className="numOfStar"> {numberOfStars}</span>
      </div>
     );
  }

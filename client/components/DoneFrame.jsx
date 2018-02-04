@@ -15,6 +15,7 @@ class DoneFrame extends React.Component {
     return (
       <div className="doneFrame">
        <h2>{doneStatus}</h2>
+          <button className="playAgain" onClick={this.props.playAgain}>Play Again</button>
       </div>
     )
   }
